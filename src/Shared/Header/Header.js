@@ -1,29 +1,22 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import logo from "../../images/logo.png";
+
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <>
+    <div className="container">
       <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
-            <img width="50" height="30" src={logo} alt="" />
+          <Navbar.Brand as={Link} to="/">
             Fashionic
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link>
-                <Link className="text-decoration-none text-white" to="/">
-                  Home
-                </Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link className="text-decoration-none text-white" to="/gallery">
-                  Gallery
-                </Link>
+              <Nav.Link href="home#services">Services</Nav.Link>
+              <Nav.Link as={Link} to="/">
+                About
               </Nav.Link>
               <Nav.Link>
                 <Link
@@ -54,7 +47,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 
