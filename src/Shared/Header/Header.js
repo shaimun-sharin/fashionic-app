@@ -1,12 +1,16 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import logo from "../../images/logo.png";
 
 const Header = () => {
   return (
-    <nav>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <>
+      <Navbar collapseOnSelect expand="lg" bg="info" variant="light">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <img width="50" height="30" src={logo} alt="" />
+            Fashionic
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -35,7 +39,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </nav>
+    </>
   );
 };
 
