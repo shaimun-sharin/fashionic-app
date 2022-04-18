@@ -8,22 +8,28 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import auth from "../../../../firebase.init";
+import Loading from "../../../../Shared/Loading/Loading/Loading";
 
 const Social = () => {
-  const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
-  const [signInWithGithub, user1, error1] = useSignInWithGithub(auth);
+  const [signInWithGoogle, user, error, loading] = useSignInWithGoogle(auth);
+  const [signInWithGithub, userGit, errorGit, loadingGit] =
+    useSignInWithGithub(auth);
   const navigate = useNavigate();
+  if (loading || loadingGit) {
+    return <Loading></Loading>;
+  }
+
+  if (user || userGit) {
+    navigate("/home");
+  }
   let errorElement;
-  if (error || error1) {
+  if (error || errorGit) {
     errorElement = (
       <p className="text-danger">
         Error: {error?.message}
-        {error1?.message}
+        {errorGit?.message}
       </p>
     );
-  }
-  if (user || user1) {
-    navigate("/home");
   }
   return (
     <div>

@@ -3,16 +3,20 @@ import { Button, Form } from "react-bootstrap";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import Loading from "../../../Shared/Loading/Loading/Loading";
 import Social from "../Social/Social/Social";
 
 const Register = () => {
-  const [createUserWithEmailAndPassword, user] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const navigate = useNavigate();
   const navigateLogin = () => {
     navigate("/login");
   };
+  if (loading) {
+    return <Loading></Loading>;
+  }
   if (user) {
     navigate("/home");
   }
@@ -20,7 +24,7 @@ const Register = () => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    // console.log(email, password);
+    console.log(email, password);
     createUserWithEmailAndPassword(email, password);
   };
   return (
