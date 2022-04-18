@@ -35,12 +35,8 @@ const Social = () => {
           className="btn w-50 px-2 d-block mx-auto bg-info"
         >
           <img src={google} alt="" /> Google Sign In
-        </button>{" "}
+        </button>
         <br />
-        <button className="btn w-50 px-2 d-block mx-auto bg-success">
-          <img style={{ width: "20px" }} src={facebook} alt="" /> Facebook Sign
-          In
-        </button>{" "}
         <br />
         <button className="btn w-50 px-2 d-block mx-auto bg-secondary">
           <img src={github} alt="" /> Github Sign In
