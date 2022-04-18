@@ -1,21 +1,34 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
-// import SocialLogin from "../SocialLogin/SocialLogin";
+import Social from "../Social/Social/Social";
 
 const LogIn = () => {
+  // variables
   const emailRef = useRef("");
   const passRef = useRef("");
   const navigate = useNavigate();
-
-  const [signInWithEmailAndPassword, user, loading, error] =
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  const [signInWithEmailAndPassword, user, error] =
     useSignInWithEmailAndPassword(auth);
 
-  if (user) {
-    navigate("/home");
+  // errors
+  let errorElement;
+  if (error) {
+    errorElement = (
+      <div>
+        <p className="text-danger">Error: {error?.message}</p>
+      </div>
+    );
   }
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  //   signIn
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
@@ -43,11 +56,12 @@ const LogIn = () => {
           Submit
         </Button>
       </Form>
+      {errorElement}
       <br />
-      {/* <SocialLogin></SocialLogin> */}
+      <Social></Social>
       <br />
       <p className="text-danger">
-        New to Autorex?{" "}
+        New to Autorex?
         <Link
           to="/register"
           className="text-success text-decoration-none pe-auto"

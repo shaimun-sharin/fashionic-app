@@ -6,7 +6,7 @@ import auth from "../../../firebase.init";
 import Social from "../Social/Social/Social";
 
 const Register = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword, user] =
     useCreateUserWithEmailAndPassword(auth);
 
   const navigate = useNavigate();
@@ -18,10 +18,9 @@ const Register = () => {
   }
   const handleRegister = (event) => {
     event.preventDefault();
-    const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     createUserWithEmailAndPassword(email, password);
   };
   return (
