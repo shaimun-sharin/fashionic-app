@@ -8,15 +8,22 @@ const Header = () => {
     <div className="container">
       <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand className="text-white" as={Link} to="/">
             Fashionic
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="home#services">Services</Nav.Link>
-              <Nav.Link as={Link} to="/">
-                About
+              <Nav.Link as={Link} to="/home">
+                Home
+              </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-decoration-none text-white"
+                  to="/testimonials"
+                >
+                  Testimonials
+                </Link>
               </Nav.Link>
               <Nav.Link>
                 <Link
@@ -31,6 +38,14 @@ const Header = () => {
               <Nav.Link>
                 <Link className="text-decoration-none text-white" to="/login">
                   Log In
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-decoration-none text-white"
+                  to="/register"
+                >
+                  Register
                 </Link>
               </Nav.Link>
               <Nav.Link>
