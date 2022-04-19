@@ -29,10 +29,9 @@ const Register = () => {
   };
   return (
     <div className="container w-50 mx-auto b">
-      <h4 className="text-info text-center">New User?</h4>
-      <h5 className="text-danger text-center m-2">
-        fill up the form below and Register !
-      </h5>
+      <h3 className="text-success text-center m-2">
+        Fill up the form below and Register !
+      </h3>
       <Form onSubmit={handleRegister}>
         <Form.Group className="mb-3" controlId="formBasicText">
           <Form.Control type="text" name="name" placeholder="Enter name" />
@@ -49,15 +48,15 @@ const Register = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="success" type="submit">
+          Register
         </Button>
       </Form>
       <br />
       <Social></Social>
       <br />
-      <p className="text-danger">
-        Already have an account?{" "}
+      <h5 className="text-danger">
+        Already have an account?
         <Link
           to="/login"
           className="text-success text-decoration-none pe-auto"
@@ -65,7 +64,7 @@ const Register = () => {
         >
           Go To LogIn page!
         </Link>
-      </p>
+      </h5>
     </div>
   );
 };

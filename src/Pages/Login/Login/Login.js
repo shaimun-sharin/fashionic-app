@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
+import "./Login.css";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -11,6 +12,7 @@ import Social from "../Social/Social/Social";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import login from "../../../images/login.jpg";
 
 const LogIn = () => {
   // variables
@@ -19,19 +21,21 @@ const LogIn = () => {
   const navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  const [signInWithEmailAndPassword, user, error, loading] =
+  const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-  // let errorElement;
+  let errorElement;
 
-  if (loading || sending) return <Loading></Loading>;
+  if (loading || sending) {
+    return <Loading></Loading>;
+  }
   if (user) {
     navigate(from, { replace: true });
   }
   if (error) {
     console.log(error.message);
-    // errorElement = <p className="text-danger">Error: {error.code}</p>;
+    errorElement = <p className="text-danger">Error: {error.message}</p>;
   }
   //   signIn
   const handleSubmit = (event) => {
@@ -51,57 +55,64 @@ const LogIn = () => {
   };
 
   return (
-    <div className="container w-50 mx-auto">
-      <h3 className="text-primary text-center">Please log in</h3>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control
-            required
-            ref={emailRef}
-            type="email"
-            placeholder="Enter email"
-          />
-        </Form.Group>
+    <div className="login container">
+      <div className="w-100 mt-5">
+        <img className="w-50" src={login} alt="" />
+      </div>
+      <div className=" w-100">
+        <h3 className="text-primary text-center">
+          Log In To enjoy seamlessly!
+        </h3>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Control
+              required
+              ref={emailRef}
+              type="email"
+              placeholder="Enter email"
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control
-            required
-            ref={passRef}
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Control
+              required
+              ref={passRef}
+              type="password"
+              placeholder="Password"
+            />
+          </Form.Group>
 
-        <Button variant="primary" type="submit">
-          LogIn
-        </Button>
-      </Form>
-      <br />
-      {/* {errorElement} */}
-      <br />
-      <Social></Social>
+          <Button variant="primary" type="submit">
+            LogIn
+          </Button>
+        </Form>
+        <br />
+        {errorElement}
+        <br />
+        <Social></Social>
 
-      <br />
-      <p className="text-danger">
-        New to This Site?
-        <Link
-          to="/register"
-          className="text-success text-decoration-none pe-auto"
-          onClick={navigateRegister}
-        >
-          Please register!
-        </Link>
-      </p>
-      <p>
-        Forget Password?{" "}
-        <button
-          className="btn btn-link text-success pe-auto text-decoration-none"
-          onClick={resetPassword}
-        >
-          Reset Password
-        </button>
-      </p>
-      <ToastContainer />
+        <br />
+        <h6 className="text-danger">
+          New to This Site?
+          <Link
+            to="/register"
+            className="text-success text-decoration-none pe-auto"
+            onClick={navigateRegister}
+          >
+            Please register!
+          </Link>
+        </h6>
+        <p>
+          Forget Password?
+          <button
+            className="btn btn-danger text-white pe-auto text-decoration-none"
+            onClick={resetPassword}
+          >
+            Reset Password
+          </button>
+        </p>
+        <ToastContainer />
+      </div>
     </div>
   );
 };

@@ -11,8 +11,8 @@ import auth from "../../../../firebase.init";
 import Loading from "../../../../Shared/Loading/Loading/Loading";
 
 const Social = () => {
-  const [signInWithGoogle, user, error, loading] = useSignInWithGoogle(auth);
-  const [signInWithGithub, userGit, errorGit, loadingGit] =
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGithub, userGit, loadingGit, errorGit] =
     useSignInWithGithub(auth);
   const navigate = useNavigate();
   if (loading || loadingGit) {
@@ -42,16 +42,16 @@ const Social = () => {
       <div>
         <button
           onClick={() => signInWithGoogle()}
-          className="btn w-50 px-2 d-block mx-auto bg-info"
+          className="btn w-75 px-2 d-block text-white mx-auto bg-success "
         >
-          <img src={google} alt="" /> Google Sign In
+          Google Sign In
         </button>
         <br />
         <button
           onClick={() => signInWithGithub()}
-          className="btn w-50 px-2 d-block mx-auto bg-secondary"
+          className="btn w-75 px-2 d-block mx-auto text-white bg-primary"
         >
-          <img src={github} alt="" /> Github Sign In
+          Github Sign In
         </button>
       </div>
     </div>
