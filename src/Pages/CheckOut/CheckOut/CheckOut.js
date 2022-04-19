@@ -6,6 +6,9 @@ import "./Checkout.css";
 
 const CheckOut = () => {
   const { servicesId } = useParams();
+  const proceed = () => {
+    alert("Thank You for booking!");
+  };
 
   return (
     <div className="checkout">
@@ -35,7 +38,7 @@ const CheckOut = () => {
             />
           </Form.Group>
 
-          <Button variant="success" type="submit">
+          <Button onClick={proceed} variant="success" type="submit">
             Proceed
           </Button>
         </Form>

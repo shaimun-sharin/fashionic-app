@@ -22,17 +22,21 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route
           path="/services/:servicesId"
-          element={<CheckOut></CheckOut>}
-        ></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route
-          path="/checkout"
           element={
             <RequireAuth>
               <CheckOut></CheckOut>
             </RequireAuth>
           }
         ></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        {/* <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <CheckOut></CheckOut>
+            </RequireAuth>
+          }
+        ></Route> */}
         <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>

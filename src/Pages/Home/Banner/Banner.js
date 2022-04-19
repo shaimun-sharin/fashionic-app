@@ -12,26 +12,24 @@ const Banner = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={one} alt="First slide" />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>It’s your time to shine</h3>
+            <p>Where we love to exceed your expectations..</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={two} alt="Second slide" />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Be who you want.</h3>
+            <p>Unlock the beauty in you..</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={three} alt="Third slide" />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>Feel good about yourself</h3>
+            <p>We care about you..</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
