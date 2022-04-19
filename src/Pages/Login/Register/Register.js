@@ -7,13 +7,13 @@ import Loading from "../../../Shared/Loading/Loading/Loading";
 import Social from "../Social/Social/Social";
 
 const Register = () => {
-  const [createUserWithEmailAndPassword, user, loading] =
-    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-
   const navigate = useNavigate();
   const navigateLogin = () => {
     navigate("/login");
   };
+  const [createUserWithEmailAndPassword, user, loading] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
   if (loading) {
     return <Loading></Loading>;
   }

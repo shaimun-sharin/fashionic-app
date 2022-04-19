@@ -12,8 +12,8 @@ const Header = () => {
     signOut(auth);
   };
   return (
-    <div className="container">
-      <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
+    <div>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand className="text-white" as={Link} to="/">
             Fashionic

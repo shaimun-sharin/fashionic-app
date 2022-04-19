@@ -23,14 +23,15 @@ const LogIn = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-  // errors
-  let errorElement;
-  if (error) {
-    errorElement = <p className="text-danger">Error: {error?.message}</p>;
-  }
+  // let errorElement;
+
   if (loading || sending) return <Loading></Loading>;
   if (user) {
     navigate(from, { replace: true });
+  }
+  if (error) {
+    console.log(error.message);
+    // errorElement = <p className="text-danger">Error: {error.code}</p>;
   }
   //   signIn
   const handleSubmit = (event) => {
@@ -76,7 +77,7 @@ const LogIn = () => {
         </Button>
       </Form>
       <br />
-      {errorElement}
+      {/* {errorElement} */}
       <br />
       <Social></Social>
 
