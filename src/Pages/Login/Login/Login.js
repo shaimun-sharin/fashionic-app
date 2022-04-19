@@ -12,7 +12,7 @@ import Social from "../Social/Social/Social";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import login from "../../../images/login.jpg";
+import login from "../../../images/login .png";
 
 const LogIn = () => {
   // variables
@@ -56,10 +56,10 @@ const LogIn = () => {
 
   return (
     <div className="login container">
-      <div className="w-100 mt-5">
+      <div className="w-100 m-auto">
         <img className="w-50" src={login} alt="" />
       </div>
-      <div className=" w-100">
+      <div className=" conatiner w-100">
         <h3 className="text-primary text-center">
           Log In To enjoy seamlessly!
         </h3>
