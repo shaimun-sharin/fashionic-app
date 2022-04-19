@@ -12,73 +12,54 @@ const Header = () => {
     signOut(auth);
   };
   return (
-    <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand className="text-white" as={Link} to="/">
-            Fashionic
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/home">
-                Home
-              </Nav.Link>
-              <Nav.Link>
-                <Link
-                  className="text-decoration-none text-white"
-                  to="/testimonials"
+    <Navbar collapseOnSelect expand="lg" bg="dark" sticky="top" variant="dark">
+      <Container>
+        <Navbar.Brand className="text-white" as={Link} to="/">
+          Fashionic
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/home">
+              Home
+            </Nav.Link>
+            <Nav.Link href="home#services">Services</Nav.Link>
+            <Nav.Link href="home#testimonials">Testimonials</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link>
+              {user ? (
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-danger text-white"
                 >
-                  Testimonials
+                  Sign Out
+                </button>
+              ) : (
+                <Link className="text-decoration-none text-white" to="/login">
+                  Log In
                 </Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link
-                  className="text-decoration-none text-white"
-                  to="/services"
-                >
-                  Services
-                </Link>
-              </Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link>
-                {user ? (
-                  <button
-                    onClick={handleSignOut}
-                    className="btn btn-danger text-white"
-                  >
-                    Sign Out
-                  </button>
-                ) : (
-                  <Link className="text-decoration-none text-white" to="/login">
-                    Log In
-                  </Link>
-                )}
-              </Nav.Link>
-              <Nav.Link>
-                <Link
-                  className="text-decoration-none text-white"
-                  to="/register"
-                >
-                  Register
-                </Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link className="text-decoration-none text-white" to="/about">
-                  About
-                </Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link className="text-decoration-none text-white" to="/blogs">
-                  Blogs
-                </Link>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+              )}
+            </Nav.Link>
+            <Nav.Link>
+              <Link className="text-decoration-none text-white" to="/register">
+                Register
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link className="text-decoration-none text-white" to="/about">
+                About
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link className="text-decoration-none text-white" to="/blogs">
+                Blogs
+              </Link>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

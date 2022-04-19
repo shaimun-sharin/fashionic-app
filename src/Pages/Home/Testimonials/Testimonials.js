@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+
 import Testimonial from "../Testimonial/Testimonial";
 import "./Testimonials.css";
 
@@ -11,7 +11,7 @@ const Testimonials = () => {
       .then((data) => setTestimonials(data));
   }, []);
   return (
-    <div className="testimonials">
+    <div id="testimonials" className="testimonials">
       <h2 className="text-center">Customer Review:</h2>
       <div style={{ height: "1px" }} className="bg-dark w-25 mx-auto"></div>
       <div className="testimonial m-4 pb-2">
