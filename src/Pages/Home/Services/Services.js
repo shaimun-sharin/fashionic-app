@@ -5,7 +5,7 @@ import "./Services.css";
 const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("data.json")
+    fetch(process.env.PUBLIC_URL + "/data.json")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

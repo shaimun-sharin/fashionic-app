@@ -1,6 +1,4 @@
 import React from "react";
-import google from "../../../../images/google.png";
-import github from "../../../../images/github.png";
 import {
   useSignInWithGithub,
   useSignInWithGoogle,
