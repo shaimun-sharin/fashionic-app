@@ -1,0 +1,7 @@
+.blog {
+    border: 1px solid lightgray;
+    padding: 2%;
+    margin:2%;
+    border-radius: 20px;
+    background-color: rgb(249, 235, 219);
+}

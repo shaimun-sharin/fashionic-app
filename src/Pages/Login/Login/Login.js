@@ -59,7 +59,7 @@ const LogIn = () => {
       <div className="w-100 m-auto">
         <img className="w-50" src={login} alt="" />
       </div>
-      <div className=" conatiner w-100">
+      <div className="conatiner w-100">
         <h3 className="text-primary text-center">
           Log In To enjoy seamlessly!
         </h3>

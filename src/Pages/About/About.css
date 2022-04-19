@@ -1,0 +1,9 @@
+.about {
+    border: 1px solid lightgray;
+    padding: 2%;
+    margin: 2% auto;
+    border-radius: 20px;
+    width: 50%;
+    background-color: rgb(249, 235, 219);
+    
+}
